@@ -1,0 +1,41 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+logs/*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor and IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Build / dist
+dist/
+build/
+
+# Mongoose / DB
+*.sqlite
+*.db
+
+# Misc
+coverage/
+coverage-*.json
+
+# Optional lockfiles (keep or remove depending on team policy)
+# package-lock.json
+# yarn.loc
