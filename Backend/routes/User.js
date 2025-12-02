@@ -7,12 +7,12 @@ const bcrypt = require("bcrypt");
 router.post("/register", async (req, res) => {
   const { name, email, password, phone, address } = req.body;
   if (!name || !email || !password || !phone || !address) {
-    res.status(400).json({ message: "All Fields are required" });
+    return res.status(400).json({ message: "All Fields are required" });
   }
   let hashedpassword = await bcrypt.hash(password, 10);
   const findemail = await User.findOne({ email });
   if (findemail) {
-    res.status(400).json({ message: "email alerady registerd" });
+    return res.status(400).json({ message: "email alerady registerd" });
   }
   const newUser = new User({
     name,
@@ -29,7 +29,7 @@ router.post("/register", async (req, res) => {
       expiresIn: "1w",
     }
   );
-  res.status(201).json({ message: "User added Successfuly", newUser, token });
+  return res.status(201).json({ message: "User added Successfuly", newUser, token });
 });
 //sign in
 router.post("/signin", async (req, res) => {
@@ -53,7 +53,7 @@ router.post("/signin", async (req, res) => {
   const user = await User.find();
   return res
     .status(201)
-    .json({ message: "User sign in sucessfully", newUser, token });
+    .json({ message: "User sign in sucessfully", newUser, token});
 });
 //update user
 router.put("/updateUser/:id", async (req, res) => {
