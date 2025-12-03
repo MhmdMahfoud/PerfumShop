@@ -16,6 +16,9 @@ const OrderSchema = new mongoose.Schema({
   },
   address:{
     type:String
+  },
+  totalPrice:{
+    type:Number
   }
 });
 module.exports=mongoose.model("Order",OrderSchema)

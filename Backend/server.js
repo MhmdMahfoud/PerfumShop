@@ -6,10 +6,12 @@ app.use(express.json());
 app.use(cors());
 const ConnectDB = require("../Backend/config/db");
 ConnectDB();
+app.use("/uploads", express.static("uploads"));
 app.use("/User", require("./routes/User"));
 app.use("/Categories", require("./routes/Categories"));
 app.use("/Products",require("./routes/Products"))
 app.use("/Orders",require("./routes/Orders"))
+
 PORT = process.env.PORT;
 
 app.listen(PORT, () => {
